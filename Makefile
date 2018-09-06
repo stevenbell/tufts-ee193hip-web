@@ -1,5 +1,5 @@
 # Jemdoc pages to compile
-PAGES=index
+PAGES=index slides
 
 # Command to run jemdoc
 JEMDOC=python ./jemdoc.py
@@ -15,7 +15,7 @@ all : $(PHPAGES)
 # Push the pages to the web server
 .PHONY : push
 push : $(PHPAGES)
-	scp html/* me@server
+	scp html/* sbell@linux.eecs.tufts.edu:/ee/193HIP/public_html
 
 html/%.html : %.jemdoc MENU
 	$(JEMDOC) -o $@ $<
